@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { IssuerComponent } from './issuer/issuer.component';
 import { ConsumerComponent } from './consumer/consumer.component';
+import { WaterCompanyComponent } from './water-company/water-company.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { ConsumerComponent } from './consumer/consumer.component';
     HeaderComponent,
     IssuerComponent,
     ConsumerComponent,
+    WaterCompanyComponent,
   ],
   imports: [
     BrowserModule,

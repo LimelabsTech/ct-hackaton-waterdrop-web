@@ -20,7 +20,7 @@ export class IssuerComponent implements OnInit {
   ) {
     this.pricingForm = this.formBuilder.group({
       waterMeterAddress: ['', [Validators.required]],
-      requestedLitres: [6000, [Validators.required]]
+      requestedLitres: [3000, [Validators.required]]
     });
   }
 
@@ -51,6 +51,7 @@ export class IssuerComponent implements OnInit {
     const res = await this.waterDropConnection.buyVoucher(waterMeter, requestedLiters);
     this.voucher = res;
     this.pricingForm.reset();
+    this.requestedLitres.setValue(3000);
   }
 
 }

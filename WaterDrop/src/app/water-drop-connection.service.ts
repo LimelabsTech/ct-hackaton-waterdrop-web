@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import Web3 from 'web3';
 import { WaterGoverning } from './contract-abis/WaterGoverning';
 import { WaterVauchers } from './contract-abis/WaterVauchers';
+import * as crypto from 'crypto-browserify';
+import { Buffer } from 'buffer';
 
 @Injectable()
 export class WaterDropConnectionService {
@@ -40,6 +42,16 @@ export class WaterDropConnectionService {
       liters
     ).call();
     return quotation;
+  }
+
+  public async buyVoucher(waterMeterAddress: string, liters: number) {
+    const voucherCode = Buffer.from(crypto.randomBytes(32)).toString('hex');
+    const quotation = await this.estimatePrice(waterMeterAddress, liters);
+    await this.waterVauchersContract.methods.estimatePrice(
+      waterMeterAddress,
+      liters
+    ).call();
+    return { quotation, voucherCode };
   }
 
 }

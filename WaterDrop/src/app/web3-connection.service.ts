@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
-import Web3 from 'web3';
-import * as w3 from 'web3';
-import Accounts from 'web3-eth-accounts';
-import { default as EthereumTx } from 'ethereumjs-tx';
-import { default as Wallet } from 'ethereumjs-wallet';
+import * as Web3 from 'web3';
+import * as EthereumTx from 'ethereumjs-tx';
+import * as Wallet from 'ethereumjs-wallet';
 import { Buffer } from 'buffer';
 
 @Injectable()
@@ -12,7 +10,7 @@ export class Web3ConnectionService {
   public web3: Web3;
 
   constructor() {
-    this.web3 = new w3(new w3.providers.HttpProvider('http://localhost:7545'));
+    this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:7545'));
   }
 
   public async signTransaction(

@@ -39,9 +39,9 @@
         </form>
       </div>
     </div>
-    <div class="panel panel-success" *ngIf="myQuotation > 0">
+    <div class="panel panel-success" *ngIf="myQuotation">
       <div class="panel-body">
-        Your price quotation is {{myQuotation}} Rand.
+        Your price quotation is {{myQuotation.amount /100}} Rand. ({{myQuotation.price/100}}R per 1000 liters)
       </div>
     </div>
   </div>

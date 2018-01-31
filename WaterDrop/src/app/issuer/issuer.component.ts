@@ -19,7 +19,7 @@ export class IssuerComponent implements OnInit {
     private formBuilder: FormBuilder
   ) {
     this.pricingForm = this.formBuilder.group({
-      waterMeterAddress: ['', [Validators.required]],
+      waterMeterAddress: ['0xf17f52151EbEF6C7334FAD080c5704D77216b732', [Validators.required]],
       requestedLitres: [6000, [Validators.required]]
     });
   }

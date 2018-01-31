@@ -13,7 +13,7 @@ export class ConsumerComponent implements OnInit {
   public pricingForm: FormGroup;
 
   public myAllowance = -1;
-  public myQuotation = -1;
+  public myQuotation: any;
 
   constructor(
     private waterDropConnection: WaterDropConnectionService,
@@ -57,7 +57,7 @@ export class ConsumerComponent implements OnInit {
     const waterMeter = this.pricingWaterMeterAddress.value;
     const requestedLiters = this.requestedLitres.value;
     const res = await this.waterDropConnection.estimatePrice(waterMeter, requestedLiters);
-    this.myQuotation = res / 100;
+    this.myQuotation = res;
   }
 
 }

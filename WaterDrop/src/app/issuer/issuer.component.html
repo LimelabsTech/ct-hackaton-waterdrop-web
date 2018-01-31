@@ -20,9 +20,10 @@
         </form>
       </div>
     </div>
-    <div class="panel panel-success" *ngIf="myQuotation > 0">
+    <div class="panel panel-success" *ngIf="myQuotation">
       <div class="panel-body">
-        Your price quotation is {{myQuotation}} Rand.
+        Your price quotation is {{myQuotation.amount /100}} Rand. (
+        <i>{{myQuotation.price/100}}R per 1000 liters</i>)
       </div>
     </div>
     <div class="panel panel-success" *ngIf="voucher">
@@ -31,7 +32,8 @@
         Your Receipt Voucher Code :
         <strong>{{voucher.voucherCode}}</strong>
         <br>Price:
-        <strong>{{voucher.quotation.amount/100}}</strong> Rand. ({{voucher.quotation.price/100}}R per 1000 liters)
+        <strong>{{voucher.quotation.amount/100}}</strong> Rand. (
+        <i>{{voucher.quotation.price/100}}R per 1000 liters</i>)
       </div>
     </div>
   </div>

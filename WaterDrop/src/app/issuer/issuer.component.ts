@@ -11,15 +11,15 @@ export class IssuerComponent implements OnInit {
 
   public pricingForm: FormGroup;
 
-  public myQuotation = -1;
-  public voucher: any = null;
+  public myQuotation: any;
+  public voucher: any;
 
   constructor(
     private waterDropConnection: WaterDropConnectionService,
     private formBuilder: FormBuilder
   ) {
     this.pricingForm = this.formBuilder.group({
-      waterMeterAddress: ['0xf17f52151EbEF6C7334FAD080c5704D77216b732', [Validators.required]],
+      waterMeterAddress: ['', [Validators.required]],
       requestedLitres: [6000, [Validators.required]]
     });
   }
@@ -41,7 +41,7 @@ export class IssuerComponent implements OnInit {
     const waterMeter = this.pricingWaterMeterAddress.value;
     const requestedLiters = this.requestedLitres.value;
     const res = await this.waterDropConnection.estimatePrice(waterMeter, requestedLiters);
-    this.myQuotation = res / 100;
+    this.myQuotation = res;
   }
 
   public async purchaseVoucher() {
@@ -50,8 +50,7 @@ export class IssuerComponent implements OnInit {
     const requestedLiters = this.requestedLitres.value;
     const res = await this.waterDropConnection.buyVoucher(waterMeter, requestedLiters);
     this.voucher = res;
-    console.log(this.voucher);
-    // this.pricingForm.reset();
+    this.pricingForm.reset();
   }
 
 }

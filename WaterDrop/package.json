@@ -9,7 +9,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "postinstall": "node cryptofix.js"
+    "postinstall": "node cryptofix.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "private": true,
   "dependencies": {
@@ -32,7 +34,8 @@
     "web3-eth-accounts": "1.0.0-beta.27",
     "core-js": "^2.4.1",
     "rxjs": "^5.5.6",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "snyk": "^1.116.2"
   },
   "devDependencies": {
     "@angular/cli": "1.6.6",
@@ -53,5 +56,6 @@
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "typescript": "^2.4.2"
-  }
+  },
+  "snyk": true
 }
